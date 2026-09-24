@@ -1,14 +1,20 @@
 # -*- coding: utf8 -*-
 # ===== 本地补丁（非上游代码，2026-09-24）=====
-# 1) 放宽 requests.get 超时：util/zepp_helper.py 的 get_user_device_id() 里写死
-#    timeout=5 秒，而 GitHub runner 在国外访问华米国内接口 api-mifit-cn.huami.com
-#    经常超过 5 秒 → 查询设备必然失败 → 退回占位 MAC DA932FFFFE8816E7 提交。
-# 2) 调试：把华米「设备列表」(binds.json) 的原始返回打印出来，方便排查为什么查不到设备。
+# 目的：只「放宽」调用方已经显式设置过的超时，不给原本没有超时的请求新增超时。
 #
+# 背景：util/zepp_helper.py 的 get_user_device_id() 里写死 timeout=5 秒，
+# 而 GitHub runner 在国外访问华米国内接口 api-mifit-cn.huami.com 经常超过 5 秒
+# → 查询绑定设备必然失败 → 退回占位 MAC DA932FFFFE8816E7 提交。
+# 注意：check_app_token() 等调用原本不设 timeout（愿意一直等），
+# 给它们加超时会导致原本能成功的请求反而失败，所以这里不动它们。
+#
+# 附带：调试打印华米「设备列表」(binds.json) 的原始返回。
 # 本文件为新增文件（上游 util/ 目录没有 __init__.py），不会改动任何已有代码。
 import requests as _requests
 
 _orig_requests_get = _requests.get
+
+_WIDEN_TO = 60  # 把调用方设置的超时放宽到这个值（秒）
 
 
 def _debug_binds(resp):
@@ -35,7 +41,12 @@ def _debug_binds(resp):
 
 
 def _patched_requests_get(*args, **kwargs):
-    kwargs["timeout"] = max(kwargs.get("timeout") or 0, 30)
+    t = kwargs.get("timeout")
+    if t is not None:
+        if isinstance(t, (tuple, list)):
+            kwargs["timeout"] = tuple(max(x, _WIDEN_TO) for x in t)
+        else:
+            kwargs["timeout"] = max(t, _WIDEN_TO)
     resp = _orig_requests_get(*args, **kwargs)
     url = args[0] if args else kwargs.get("url", "")
     if "binds.json" in str(url):
