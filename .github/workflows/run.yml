@@ -30,7 +30,7 @@ jobs:
             AES_KEY: ${{ secrets.AES_KEY }}
         run: |
           pip3 install -r requirements.txt
-          python3 main.py
+          python3 main.py 2>&1 | grep -v grant_app_token | tee last_run.log
 
       - name: persist tokens
         run: |
