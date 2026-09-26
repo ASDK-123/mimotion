@@ -1,17 +1,131 @@
 多账号执行间隔：5.0
-===== DEBUG 设备列表原始返回 =====
-status: 500
-设备数量: 0
-原始内容: {"code":-50000,"message":"Failed to process the request. Detailed error message has been logged on server side."}
-===== DEBUG END =====
-[2026-09-26 13:37:18]
+查询设备列表异常: HTTPSConnectionPool(host='api-mifit-cn.huami.com', port=443): Read timed out. (read timeout=60)
+[2026-09-26 22:45:47]
 [1/1]账号：314****.com
-使用加密保存的app_token
-已设置为随机步数范围(11140~15473) 随机值:13046
-修改步数（13046）[success]
+执行异常:Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
+    response.begin()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
+    version, status, reason = self._read_status()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
+    response.begin()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
+    version, status, reason = self._read_status()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/mimotion/mimotion/main.py", line 214, in run_single_account
+    exec_msg, success = runner.login_and_post_step(min_step, max_step)
+  File "/home/runner/work/mimotion/mimotion/main.py", line 203, in login_and_post_step
+    ok, msg = zeppHelper.post_fake_brand_data(step, app_token, self.user_id, device_id=bound_device_id)
+  File "/home/runner/work/mimotion/mimotion/util/zepp_helper.py", line 297, in post_fake_brand_data
+    response = requests.post(url, data=data, headers=head)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/adapters.py", line 711, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
+    response.begin()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
+    version, status, reason = self._read_status()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
+    response.begin()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
+    version, status, reason = self._read_status()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/mimotion/mimotion/main.py", line 214, in run_single_account
+    exec_msg, success = runner.login_and_post_step(min_step, max_step)
+  File "/home/runner/work/mimotion/mimotion/main.py", line 203, in login_and_post_step
+    ok, msg = zeppHelper.post_fake_brand_data(step, app_token, self.user_id, device_id=bound_device_id)
+  File "/home/runner/work/mimotion/mimotion/util/zepp_helper.py", line 297, in post_fake_brand_data
+    response = requests.post(url, data=data, headers=head)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/adapters.py", line 711, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 
 
-执行账号总数1，成功：1，失败：0
+执行账号总数1，成功：0，失败：1
 未配置 PUSH_PLUS_TOKEN 跳过PUSHPLUS推送
 未配置 WECHAT_WEBHOOK_KEY 跳过微信推送
 未配置 TELEGRAM_BOT_TOKEN 或 TELEGRAM_CHAT_ID 跳过telegram推送
