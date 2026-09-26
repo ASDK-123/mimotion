@@ -1,21 +1,30 @@
 多账号执行间隔：5.0
-查询设备列表异常: HTTPSConnectionPool(host='api-mifit-cn.huami.com', port=443): Read timed out. (read timeout=60)
-[2026-09-26 22:45:47]
+[2026-09-27 02:05:45]
 [1/1]账号：314****.com
 执行异常:Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
     response = self._make_request(
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
-    response = conn.getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
-    httplib_response = super().getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
-    response.begin()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
-    version, status, reason = self._read_status()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 878, in connect
+    wrapped_socket, is_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 1080, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 437, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 481, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
 
 During handling of the above exception, another exception occurred:
 
@@ -30,29 +39,43 @@ Traceback (most recent call last):
     raise value.with_traceback(tb)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
     response = self._make_request(
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
-    response = conn.getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
-    httplib_response = super().getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
-    response.begin()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
-    version, status, reason = self._read_status()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 878, in connect
+    wrapped_socket, is_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 1080, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 437, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 481, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "/home/runner/work/mimotion/mimotion/main.py", line 214, in run_single_account
     exec_msg, success = runner.login_and_post_step(min_step, max_step)
-  File "/home/runner/work/mimotion/mimotion/main.py", line 203, in login_and_post_step
-    ok, msg = zeppHelper.post_fake_brand_data(step, app_token, self.user_id, device_id=bound_device_id)
-  File "/home/runner/work/mimotion/mimotion/util/zepp_helper.py", line 297, in post_fake_brand_data
-    response = requests.post(url, data=data, headers=head)
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 134, in post
-    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/runner/work/mimotion/mimotion/main.py", line 187, in login_and_post_step
+    app_token = self.login()
+  File "/home/runner/work/mimotion/mimotion/main.py", line 128, in login
+    ok, msg = zeppHelper.check_app_token(app_token)
+  File "/home/runner/work/mimotion/mimotion/util/zepp_helper.py", line 198, in check_app_token
+    response = requests.get(url, params=params, headers=headers)
+  File "/home/runner/work/mimotion/mimotion/util/__init__.py", line 50, in _patched_requests_get
+    resp = _orig_requests_get(*args, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 71, in request
     return session.request(method=method, url=url, **kwargs)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
@@ -61,22 +84,32 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/adapters.py", line 711, in send
     raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
 
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
     response = self._make_request(
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
-    response = conn.getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
-    httplib_response = super().getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
-    response.begin()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
-    version, status, reason = self._read_status()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 878, in connect
+    wrapped_socket, is_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 1080, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 437, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 481, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
 
 During handling of the above exception, another exception occurred:
 
@@ -91,29 +124,43 @@ Traceback (most recent call last):
     raise value.with_traceback(tb)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
     response = self._make_request(
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
-    response = conn.getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
-    httplib_response = super().getresponse()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 1423, in getresponse
-    response.begin()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 330, in begin
-    version, status, reason = self._read_status()
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/http/client.py", line 299, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 878, in connect
+    wrapped_socket, is_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/connection.py", line 1080, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 437, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 481, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "/home/runner/work/mimotion/mimotion/main.py", line 214, in run_single_account
     exec_msg, success = runner.login_and_post_step(min_step, max_step)
-  File "/home/runner/work/mimotion/mimotion/main.py", line 203, in login_and_post_step
-    ok, msg = zeppHelper.post_fake_brand_data(step, app_token, self.user_id, device_id=bound_device_id)
-  File "/home/runner/work/mimotion/mimotion/util/zepp_helper.py", line 297, in post_fake_brand_data
-    response = requests.post(url, data=data, headers=head)
-  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 134, in post
-    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/runner/work/mimotion/mimotion/main.py", line 187, in login_and_post_step
+    app_token = self.login()
+  File "/home/runner/work/mimotion/mimotion/main.py", line 128, in login
+    ok, msg = zeppHelper.check_app_token(app_token)
+  File "/home/runner/work/mimotion/mimotion/util/zepp_helper.py", line 198, in check_app_token
+    response = requests.get(url, params=params, headers=headers)
+  File "/home/runner/work/mimotion/mimotion/util/__init__.py", line 50, in _patched_requests_get
+    resp = _orig_requests_get(*args, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/api.py", line 71, in request
     return session.request(method=method, url=url, **kwargs)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
@@ -122,7 +169,7 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/requests/adapters.py", line 711, in send
     raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
 
 
 执行账号总数1，成功：0，失败：1
