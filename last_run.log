@@ -4,11 +4,11 @@ status: 500
 设备数量: 0
 原始内容: {"code":-50000,"message":"Failed to process the request. Detailed error message has been logged on server side."}
 ===== DEBUG END =====
-[2026-11-19 02:53:11]
+[2026-11-19 15:10:55]
 [1/1]账号：314****.com
 使用加密保存的app_token
-已设置为随机步数范围(2359~3276) 随机值:3239
-修改步数（3239）[success]
+已设置为随机步数范围(12409~17234) 随机值:12487
+修改步数（12487）[success]
 
 
 执行账号总数1，成功：1，失败：0
